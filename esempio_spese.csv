@@ -1,0 +1,6 @@
+Data,Nome Fornitore,Descrizione,Pagamento Contante,Pagamento Bancario,Note
+2024-10-01,AIA,Acquisto carne fresca,0.00,97.50,Fattura n. 12345
+2024-10-01,GranTerre,Verdure e ortaggi,45.00,0.00,Pagamento in contanti
+2024-10-02,MIA,Prodotti lattiero-caseari,0.00,156.80,Pagamento con bonifico
+2024-10-03,AIA,Salumi e affettati,0.00,78.90,Fattura n. 12346
+2024-10-03,Barilla,Pasta e biscotti,0.00,234.50,Ordine settimanale

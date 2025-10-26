@@ -1,0 +1,5 @@
+Data,Capitale Iniziale,Incasso Contante,Incasso Moneta,Lordo Bancomat,Percentuale Bancomat,Costo Fisso Bancomat,Lordo Satispay,Percentuale Satispay,Costo Fisso Satispay,Note
+2024-10-01,300.00,480.00,52.00,774.11,1.95,0.15,61.22,1.00,0.00,Prima giornata di ottobre
+2024-10-02,300.00,420.00,38.00,650.50,1.95,0.15,45.80,1.00,0.00,Giornata normale
+2024-10-03,300.00,520.00,67.00,890.25,1.95,0.15,78.90,1.00,0.00,Buona giornata
+2024-10-04,300.00,380.00,41.00,567.80,1.95,0.15,32.10,1.00,0.00,Giornata tranquilla
