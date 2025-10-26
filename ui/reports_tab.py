@@ -151,9 +151,9 @@ class ReportsTab(QWidget):
         filters_layout.addWidget(self.btn_month)
         
         self.btn_apply = QPushButton('🔍 Applica Filtro')
-        self.btn_apply.setStyleSheet('QPushButton { background-color: #4CAF50; } QPushButton:hover { background-color: #45a049; }')
-        self.btn_apply.clicked.connect(self.apply_filter)
+        self.btn_apply.setProperty('class', 'primary')
         self.btn_apply.setMinimumSize(120, 35)
+        self.btn_apply.clicked.connect(self.apply_filter)
         filters_layout.addWidget(self.btn_apply)
         
         filters_layout.addStretch()

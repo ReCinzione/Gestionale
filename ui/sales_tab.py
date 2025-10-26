@@ -315,7 +315,7 @@ class SalesTab(QWidget):
         buttons_layout.setSpacing(10)
         
         self.btn_save = QPushButton('💾 Salva')
-        self.btn_save.setStyleSheet('QPushButton { background-color: #4CAF50; } QPushButton:hover { background-color: #45a049; }')
+        self.btn_save.setProperty('class', 'primary')
         self.btn_save.clicked.connect(self.save_sale)
         self.btn_save.setMinimumSize(120, 45)
         buttons_layout.addWidget(self.btn_save)

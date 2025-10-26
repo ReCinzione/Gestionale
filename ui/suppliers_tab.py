@@ -241,9 +241,9 @@ class SuppliersTab(QWidget):
         expense_buttons_layout.setSpacing(15)
         
         self.btn_save_expense = QPushButton('💾 Salva Spesa')
-        self.btn_save_expense.setStyleSheet('QPushButton { background-color: #4CAF50; } QPushButton:hover { background-color: #45a049; }')
-        self.btn_save_expense.clicked.connect(self.save_expense)
+        self.btn_save_expense.setProperty('class', 'primary')
         self.btn_save_expense.setMinimumSize(140, 40)
+        self.btn_save_expense.clicked.connect(self.save_expense)
         expense_buttons_layout.addWidget(self.btn_save_expense)
         
         self.btn_clear_expense = QPushButton('🗑️ Pulisci')

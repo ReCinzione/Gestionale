@@ -23,6 +23,10 @@ except ImportError as e:
 
 def main():
     """Funzione principale"""
+    # Abilita DPI scaling per schermi ad alta risoluzione (PRIMA di creare QApplication)
+    QApplication.setAttribute(Qt.AA_EnableHighDpiScaling, True)
+    QApplication.setAttribute(Qt.AA_UseHighDpiPixmaps, True)
+    
     # Crea l'applicazione Qt
     app = QApplication(sys.argv)
     
@@ -30,10 +34,6 @@ def main():
     app.setApplicationName('Gestionale Negozio')
     app.setApplicationVersion('1.0')
     app.setOrganizationName('Gestionale')
-    
-    # Abilita DPI scaling per schermi ad alta risoluzione
-    app.setAttribute(Qt.AA_EnableHighDpiScaling, True)
-    app.setAttribute(Qt.AA_UseHighDpiPixmaps, True)
     
     try:
         # Crea e mostra la finestra principale

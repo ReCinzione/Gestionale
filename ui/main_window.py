@@ -8,11 +8,13 @@ from PyQt5.QtWidgets import (
 )
 from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QIcon
+import qdarkstyle
 from database.schema import Database
 from database.repository import (
     SalesRepository, SuppliersRepository,
     PurchasesRepository, InvoicesRepository
 )
+from ui.dashboard_tab import DashboardTab
 from ui.sales_tab import SalesTab
 from ui.suppliers_tab import SuppliersTab
 from ui.reports_tab import ReportsTab
@@ -41,92 +43,85 @@ class MainWindow(QMainWindow):
         self.setWindowTitle('Gestionale Negozio')
         self.setGeometry(100, 100, 1400, 900)
         
-        # Applica stile moderno all'applicazione
-        self.setStyleSheet("""
-            QMainWindow {
-                background-color: #f5f5f5;
-                color: #333333;
-            }
-            
-            QTabWidget::pane {
-                border: 2px solid #e0e0e0;
-                background-color: white;
-                border-radius: 8px;
-            }
-            
-            QTabWidget::tab-bar {
-                alignment: center;
-            }
-            
-            QTabBar::tab {
-                background-color: #e8e8e8;
-                color: #555555;
-                padding: 12px 20px;
-                margin: 2px;
-                border-radius: 6px;
-                font-size: 14px;
-                font-weight: 500;
-                min-width: 150px;
-            }
-            
+        # Applica QDarkStyle come base
+        dark_stylesheet = qdarkstyle.load_stylesheet_pyqt5()
+        
+        # Personalizzazioni aggiuntive per l'identità dell'app
+        custom_style = """
+            /* Personalizzazioni per tab */
             QTabBar::tab:selected {
                 background-color: #2196F3;
+                border-bottom: 3px solid #1976D2;
+            }
+            
+            QTabBar::tab:hover:!selected {
+                background-color: #424242;
+            }
+            
+            /* Status bar personalizzata */
+            QStatusBar {
+                background-color: #2196F3;
+                color: white;
+                font-weight: 500;
+            }
+            
+            /* Pulsanti primari con colore brand */
+            QPushButton[class="primary"] {
+                background-color: #2196F3;
+                border: 2px solid #1976D2;
                 color: white;
                 font-weight: 600;
             }
             
-            QTabBar::tab:hover:!selected {
-                background-color: #d0d0d0;
+            QPushButton[class="primary"]:hover {
+                background-color: #1976D2;
+                border: 2px solid #1565C0;
             }
             
-            QStatusBar {
+            /* Card-like group boxes */
+            QGroupBox {
+                background-color: #424242;
+                border: 1px solid #616161;
+                border-radius: 8px;
+                margin-top: 10px;
+                padding-top: 15px;
+                font-weight: 600;
+            }
+            
+            QGroupBox::title {
+                subcontrol-origin: margin;
+                left: 15px;
+                padding: 5px 10px;
                 background-color: #2196F3;
                 color: white;
-                font-size: 12px;
-                padding: 5px;
-            }
-            
-            QMenuBar {
-                background-color: #ffffff;
-                color: #333333;
-                border-bottom: 1px solid #e0e0e0;
-                padding: 4px;
-            }
-            
-            QMenuBar::item {
-                background-color: transparent;
-                padding: 8px 12px;
                 border-radius: 4px;
             }
             
-            QMenuBar::item:selected {
-                background-color: #e3f2fd;
-                color: #1976d2;
+            /* Miglioramenti per le tabelle */
+            QTableWidget {
+                gridline-color: #616161;
+                selection-background-color: #2196F3;
+                alternate-background-color: #383838;
             }
             
-            QMenu {
-                background-color: white;
-                border: 1px solid #e0e0e0;
-                border-radius: 6px;
-                padding: 4px;
+            QHeaderView::section {
+                background-color: #2196F3;
+                color: white;
+                font-weight: 600;
+                border: none;
+                padding: 8px;
             }
-            
-            QMenu::item {
-                padding: 8px 16px;
-                border-radius: 4px;
-            }
-            
-            QMenu::item:selected {
-                background-color: #e3f2fd;
-                color: #1976d2;
-            }
-        """)
+        """
+        
+        # Combina QDarkStyle con le personalizzazioni
+        self.setStyleSheet(dark_stylesheet + custom_style)
         
         # Crea il widget centrale con tab
         self.tabs = QTabWidget()
         self.setCentralWidget(self.tabs)
         
         # Crea i tab
+        self.dashboard_tab = DashboardTab(self.db.connection)
         self.sales_tab = SalesTab(
             self.sales_repo,
             self.purchases_repo,
@@ -147,6 +142,7 @@ class MainWindow(QMainWindow):
         )
         
         # Aggiungi i tab
+        self.tabs.addTab(self.dashboard_tab, '🏠 Dashboard')
         self.tabs.addTab(self.sales_tab, '📊 Vendite Giornaliere')
         self.tabs.addTab(self.suppliers_tab, '🏭 Fornitori e Spese')
         self.tabs.addTab(self.reports_tab, '📈 Report e Filtri')

@@ -27,24 +27,64 @@
   - **Deadline**: Settimana 2
   - **Impact**: Medio - migliora qualità input OCR
 
+- [ ] **PyMuPDF Integration per Preview PDF**
+  - [ ] Sostituire preview PDF con PyMuPDF
+  - [ ] Rendering PDF in QLabel/QPixmap
+  - [ ] Evidenziazione testo estratto OCR
+  - [ ] Zoom e navigazione pagine
+  - **Deadline**: Settimana 3
+  - **Impact**: Alto - migliora UX gestione fatture
+
+- [ ] **Pattern Recognition per Fatture**
+  - [ ] Regex patterns per numeri fattura
+  - [ ] Estrazione automatica date e importi
+  - [ ] Riconoscimento P.IVA e codici fiscali
+  - [ ] Cache OCR per evitare doppia scansione
+  - **Deadline**: Settimana 4
+  - **Impact**: Alto - automazione inserimento dati
+
 ## 🔥 PRIORITÀ ALTA (P1)
 
-### 🎨 UI/UX Modernization
-- [ ] **Redesign Sistema Temi**
-  - [ ] Implementare QSS stylesheet system
-  - [ ] Tema scuro e chiaro
-  - [ ] Persistenza preferenze utente
-  - [ ] Toggle tema in menu
-  - **Deadline**: Settimana 3
-  - **Impact**: Alto - migliora esperienza utente
+### 🎨 UI/UX Modernization (Desktop App Focus)
+- [x] **QDarkStyle Implementation - FASE 1** ✅
+  - [x] Aggiungere qdarkstyle ai requirements.txt
+  - [x] Applicare QDarkStyle in main_window.py
+  - [x] Test compatibilità con widget esistenti
+  - [x] Backup stile originale
+  - **Completato**: Implementato con successo
+  - **Impact**: Alto - trasformazione visiva immediata
 
-- [ ] **Material Design Implementation**
-  - [ ] Sostituire emoji con Material Icons
-  - [ ] Card-based layout per sezioni
-  - [ ] Elevation shadows e animations
-  - [ ] Color palette Material Design
-  - **Deadline**: Settimana 4
-  - **Impact**: Alto - modernizza interfaccia
+- [x] **Card-Based Layout - FASE 2** ✅
+  - [x] Creare funzione create_modern_card()
+  - [x] Convertire QGroupBox esistenti in card moderne
+  - [x] Implementare stili CSS per card con border-radius
+  - [x] Aggiungere spacing e padding ottimali
+  - **Completato**: Stile card implementato
+  - **Impact**: Alto - organizzazione visiva migliore
+
+- [x] **Dashboard con Statistiche - FASE 3** ✅
+  - [x] Widget dashboard home con QLabel colorate
+  - [x] Statistiche vendite/acquisti in tempo reale
+  - [x] Card riassuntive con icone
+  - [x] Layout responsive per diverse risoluzioni desktop
+  - **Completato**: Dashboard completo con 6 KPI e 2 grafici
+  - **Impact**: Medio-Alto - valore aggiunto per analisi
+
+- [ ] **Tabelle Moderne con QTableView**
+  - [ ] Sostituire QTableWidget con QTableView
+  - [ ] Implementare QAbstractTableModel custom
+  - [ ] Righe alternate colorate e header sticky
+  - [ ] Filtri avanzati e ricerca full-text
+  - **Deadline**: Settimana 3
+  - **Impact**: Alto - performance e usabilità migliori
+
+- [ ] **Material Icons Integration**
+  - [ ] Sostituire emoji con Material Icons SVG
+  - [ ] Icone per bottoni principali
+  - [ ] Set coerente di icone per azioni
+  - [ ] Dimensioni ottimizzate per desktop
+  - **Deadline**: Settimana 2
+  - **Impact**: Medio - professionalità interfaccia
 
 - [ ] **Responsive Layout**
   - [ ] Breakpoints per diverse risoluzioni

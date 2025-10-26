@@ -352,7 +352,7 @@ class InvoicesTab(QWidget):
         action_buttons_layout.setSpacing(15)
         
         self.btn_save = QPushButton('💾 Salva Fattura')
-        self.btn_save.setStyleSheet('QPushButton { background-color: #4CAF50; } QPushButton:hover { background-color: #45a049; }')
+        self.btn_save.setProperty('class', 'primary')
         self.btn_save.clicked.connect(self.save_invoice)
         self.btn_save.setMinimumSize(150, 45)
         action_buttons_layout.addWidget(self.btn_save)
